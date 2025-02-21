@@ -1,0 +1,78 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load i18n %}
+{% block content %}
+    <style>
+        /* Выровнять текст по левому краю */
+        h2, ul {
+            text-align: left;
+        }
+
+        /* Убрать маркеры списка и отступы */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Интервал между элементами списка */
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Дополнительные стили для кнопок */
+        button {
+            margin-left: 5px;
+        }
+    </style>
+
+    <h1>{% trans 'User page' %}: {{ request.user }}</h1>
+    <hr>
+    <h2>{% trans 'Responses to my ads' %}</h2>
+    <hr>
+    {% if responses %}
+        <ul>
+            {% for response in responses %}
+                <li>
+                    <strong>{{ response.announcement.title }}</strong>: {{ response.content }}
+                    <form action="{% url 'accept_response' response.pk %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        {% if not response.is_accepted %}
+                            <button type="submit">{% trans 'Accept' %}</button>
+                        {% endif %}
+                    </form>
+                    <form action="{% url 'delete_response' response.pk %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">{% trans 'Delete' %}</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>{% trans 'There are no responses' %}</h2>
+    {% endif %}
+    {#пагинация#}
+
+
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       {# Для каждой ссылки пагинации указываем обработку через новый тег #}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+{% endblock content %}

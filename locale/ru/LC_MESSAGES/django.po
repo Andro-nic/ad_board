@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-20 11:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\board\models.py:17 .\templates\announcements.html:27
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\board\models.py:20 .\board\models.py:26
+msgid "Content"
+msgstr "Текст"
+
+#: .\board\models.py:21
+msgid "Category"
+msgstr "Категория"
+
+#: .\templates\announcement.html:17
+msgid "Add response"
+msgstr "Добавить отклик"
+
+#: .\templates\announcements.html:22
+msgid "All Announcements"
+msgstr "Все Объявления"
+
+#: .\templates\announcements.html:28
+msgid "Date of publication"
+msgstr "Дата публикации"
+
+#: .\templates\announcements.html:29
+msgid "Text"
+msgstr "Текст"
+
+#: .\templates\announcements.html:44
+msgid "There are no announcements"
+msgstr "Нет объявлений"
+
+#: .\templates\create_announcement.html:9
+msgid "Add Announcement"
+msgstr "Добавить объявление"
+
+#: .\templates\create_announcement.html:15 .\templates\create_response.html:14
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\templates\create_response.html:9
+msgid "Add Response"
+msgstr "Добавить отклик"
+
+#: .\templates\flatpages\default.html:46
+msgid "Main"
+msgstr "Главная"
+
+#: .\templates\flatpages\default.html:51
+msgid "Add announcement"
+msgstr "Добавить объявление"
+
+#: .\templates\flatpages\default.html:57 .\templates\user_responses.html:4
+msgid "User page"
+msgstr "Страница пользователя"
+
+#: .\templates\flatpages\default.html:65
+msgid "Logout"
+msgstr "Выход"
+
+#: .\templates\flatpages\default.html:71
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\response_accept.html:4
+msgid "Accept the response"
+msgstr "Принять отклик"
+
+#: .\templates\response_accept.html:5
+msgid "Are you sure you want to accept this response?"
+msgstr "Вы уверены, что хотите принять отклик?"
+
+#: .\templates\response_accept.html:8 .\templates\user_responses.html:17
+msgid "Accept"
+msgstr "Принять"
+
+#: .\templates\response_accept.html:10
+#: .\templates\response_confirm_delete.html:10
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\response_confirm_delete.html:5
+msgid "Are you sure you want to delete this response?"
+msgstr "Вы уверены, что хотите удалить этот отклик? "
+
+#: .\templates\response_confirm_delete.html:8 .\templates\user_responses.html:23
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\sign\login.html:19
+msgid "Enter"
+msgstr "Вход"
+
+#: .\templates\sign\login.html:20
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\templates\sign\signup.html:8
+#, fuzzy
+#| msgid "Content"
+msgid "Continue"
+msgstr "Текст"
+
+#: .\templates\user_responses.html:6
+msgid "Responses to my ads"
+msgstr "Отклики на мои объявления "
+
+#: .\templates\user_responses.html:29
+msgid "There are no responses"
+msgstr "У Вас нет откликов"

@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% block content %}
+<h2> {% trans 'Log in to the system' %} </h2>
+<form method="post" action="{% url 'login' %}" style="display: inline-block; text-align: right;">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+
+    <div style="margin-top: 10px;">
+        <input type="submit" value="{% trans 'Enter' %}">
+        <button style="margin-left: 5px;"><a href="/sign/signup" style="text-decoration: none;">{% trans 'Registration' %}</a></button>
+    </div>
+</form>
+{% endblock %}

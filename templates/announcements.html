@@ -1,0 +1,73 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load i18n %}
+{% block title %}
+Announcements
+{% endblock title %}
+
+{% block content %}
+<style>
+    table {
+        border-collapse: separate !important;
+    border-spacing: 5px !important;
+    }
+    td {
+        padding: 1px;
+    }
+    a {
+    color: black;
+    text-decoration: none;
+    }
+</style>
+
+    <h1>{% trans 'All Announcements' %}</h1>
+    <hr>
+    {% if announcements %}
+        <table>
+            <tr>
+                <th>{% trans 'Title' %}</th>
+                <th>{% trans 'Date of publication' %}</th>
+                <th>{% trans 'Text' %}</th>
+            </tr>
+            {% for announcement in announcements %}
+            <tr>
+                <td style="vertical-align: top; text-align: left;">
+                    <a href="{% url 'announcement_detail' announcement.id %}"> {{ announcement.title }} </a>
+                </td>
+                <td>{{ announcement.date_in|date:"d F Y" }}</td>
+                <td style="vertical-align: top; text-align: left;">
+                    <a href="{% url 'announcement_detail' announcement.id %}"> {{ announcement.content|truncatewords:20 }} </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>{% trans 'There are no announcements' %}</h2>
+    {% endif %}
+{#пагинация#}
+
+
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       {# Для каждой ссылки пагинации указываем обработку через новый тег #}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+
+{% endblock content %}

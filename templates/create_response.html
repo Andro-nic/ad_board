@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% block content %}
+<style>
+    a {
+        color: gray;
+    }
+</style>
+<h1>{% trans 'Add Response' %}</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-sm btn-secondary" value='{% trans "Save" %}' />
+</form>
+{% endblock content %}

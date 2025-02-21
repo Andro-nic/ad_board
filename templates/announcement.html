@@ -1,0 +1,19 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% block title %}
+Announcement
+{% endblock title %}
+
+{% block content %}
+<style>
+    a {
+        color: gray;
+    }
+</style>
+<h1>{{ object.title }}</h1>
+<div>
+    {{ object.content|safe }}
+</div>
+<p>{{ object.date_in }}</p>
+<a href="{% url 'response_create' announcement.id %}" class="btn btn-sm btn-secondary">{% trans 'Add response' %}</a>
+{% endblock content %}

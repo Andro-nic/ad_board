@@ -1,0 +1,33 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+Announcement
+{% endblock title %}
+
+{% block content %}
+   <style>
+       a {
+           color: gray;
+       }
+   </style>
+
+   <h1> {% trans 'Add Announcement' %} </h1>
+   <hr>
+
+   <form action="" method="post">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <input type="submit" class="btn btn-sm btn-secondary" value='{% trans "Save" %}' />
+   </form>
+
+   <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+   <script>
+       tinymce.init({
+           selector: 'textarea',  // Выбираем все элементы <textarea>
+           height: 360,
+           plugins: 'advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
+           toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+       });
+   </script>
+{% endblock %}
